@@ -1,0 +1,40 @@
+{
+	"name": "Source_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageLinkedServices",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Pune_2023-Apr-09.txt",
+				"container": "sourcelogs"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CID",
+				"type": "String"
+			},
+			{
+				"name": "Cname",
+				"type": "String"
+			},
+			{
+				"name": "Camount",
+				"type": "String"
+			},
+			{
+				"name": "CAddres",
+				"type": "String"
+			}
+		]
+	}
+}
