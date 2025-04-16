@@ -5,7 +5,14 @@
 			{
 				"name": "Blob Copy data Blob",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Sp Wait",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -59,6 +66,31 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Sp Wait",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Sp Wait Test",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Blob Copy data Blob",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
 			}
 		],
 		"annotations": []
